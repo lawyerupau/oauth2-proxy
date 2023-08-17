@@ -22,5 +22,5 @@ services:
         value: '*'
       - key: OAUTH2_PROXY_HTTP_ADDRESS
         value: ":10000"
-      - key: OAUTH2_PROXY_EXTRA_OAUTH_VALUES
+      - key: OAUTH2_PROXY_LOGIN_URL_PARAMETERS
         sync: false
