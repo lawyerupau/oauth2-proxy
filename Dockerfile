@@ -51,4 +51,4 @@ COPY --from=builder /go/src/github.com/oauth2-proxy/oauth2-proxy/jwt_signing_key
 # UID/GID 65532 is also known as nonroot user in distroless image
 USER 65532:65532
 
-ENTRYPOINT ["/bin/oauth2-proxy"]
+ENTRYPOINT [ "sh", "-c", "/bin/oauth2-proxy --upstream=http://${UPSTREAM}" ]
