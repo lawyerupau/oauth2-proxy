@@ -47,8 +47,8 @@ FROM ${RUNTIME_IMAGE}
 COPY nsswitch.conf /etc/nsswitch.conf
 COPY --from=builder /go/src/github.com/oauth2-proxy/oauth2-proxy/oauth2-proxy /bin/oauth2-proxy
 COPY --from=builder /go/src/github.com/oauth2-proxy/oauth2-proxy/jwt_signing_key.pem /etc/ssl/private/jwt_signing_key.pem
-
+COPY oauth2_proxy.cfg /etc/oauth2_proxy.cfg
 # UID/GID 65532 is also known as nonroot user in distroless image
 USER 65532:65532
 
-ENTRYPOINT [ "sh", "-c", "/bin/oauth2-proxy --upstream=http://${UPSTREAM}" ]
+ENTRYPOINT [ "/bin/oauth2-proxy" ]
