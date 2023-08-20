@@ -51,4 +51,4 @@ COPY oauth2_proxy.cfg /etc/oauth2_proxy.cfg
 # UID/GID 65532 is also known as nonroot user in distroless image
 USER 65532:65532
 
-ENTRYPOINT [ "/bin/oauth2-proxy" ]
+ENTRYPOINT [ "sh", "-c", "/bin/oauth2-proxy --upstream=http://${UPSTREAM}" ]
